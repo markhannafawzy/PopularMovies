@@ -79,7 +79,7 @@
         <!--Movie Details View-->
         <scene sceneID="as1-NE-Bt2">
             <objects>
-                <viewController id="1uS-WO-XNl" customClass="MovieDetailsView" customModule="PopularMovies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailsViewControllerID" id="1uS-WO-XNl" customClass="MovieDetailsView" customModule="PopularMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1NH-jG-fFc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsT-Me-8tW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007" y="963"/>
+            <point key="canvasLocation" x="1946" y="931"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LU8-f5-SiZ">
@@ -97,6 +97,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dn5-qS-TaF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dOu-hF-ezq">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
