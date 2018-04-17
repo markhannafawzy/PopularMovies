@@ -12,6 +12,10 @@ private let reuseIdentifier = "Cell"
 
 class HomePageCollectionView: UICollectionViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

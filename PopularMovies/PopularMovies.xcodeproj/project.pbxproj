@@ -14,8 +14,9 @@
 		C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4924DBA2083E3A60059CAC2 /* Assets.xcassets */; };
 		C4924DBE2083E3A60059CAC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4924DBC2083E3A60059CAC2 /* LaunchScreen.storyboard */; };
 		C4924DC62083E4CD0059CAC2 /* HomePageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4924DC52083E4CD0059CAC2 /* HomePageCollectionView.swift */; };
-		C4924DC82083E6460059CAC2 /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4924DC72083E6460059CAC2 /* MovieDetailsView.swift */; };
 		C4924DCA2083E77E0059CAC2 /* FavouritesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4924DC92083E77E0059CAC2 /* FavouritesTableView.swift */; };
+		C4FC55EC20869A8500D35C2D /* interstellar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4FC55EB20869A8400D35C2D /* interstellar.jpg */; };
+		C4FC55EE2086A71B00D35C2D /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC55ED2086A71B00D35C2D /* MovieDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +30,9 @@
 		C4924DBD2083E3A60059CAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4924DBF2083E3A60059CAC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4924DC52083E4CD0059CAC2 /* HomePageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionView.swift; sourceTree = "<group>"; };
-		C4924DC72083E6460059CAC2 /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
 		C4924DC92083E77E0059CAC2 /* FavouritesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableView.swift; sourceTree = "<group>"; };
+		C4FC55EB20869A8400D35C2D /* interstellar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = interstellar.jpg; sourceTree = "<group>"; };
+		C4FC55ED2086A71B00D35C2D /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		D16F0B3483A00E5D3454146B /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 		C4924DAF2083E39A0059CAC2 /* PopularMovies */ = {
 			isa = PBXGroup;
 			children = (
+				C4FC55EB20869A8400D35C2D /* interstellar.jpg */,
 				C4924DB02083E39A0059CAC2 /* AppDelegate.swift */,
 				C4924DB42083E39A0059CAC2 /* Main.storyboard */,
 				C4924DBA2083E3A60059CAC2 /* Assets.xcassets */,
@@ -82,8 +85,8 @@
 				C4924DBF2083E3A60059CAC2 /* Info.plist */,
 				C4924DB72083E39B0059CAC2 /* PopularMovies.xcdatamodeld */,
 				C4924DC52083E4CD0059CAC2 /* HomePageCollectionView.swift */,
-				C4924DC72083E6460059CAC2 /* MovieDetailsView.swift */,
 				C4924DC92083E77E0059CAC2 /* FavouritesTableView.swift */,
+				C4FC55ED2086A71B00D35C2D /* MovieDetailsViewController.swift */,
 			);
 			path = PopularMovies;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FC55EC20869A8500D35C2D /* interstellar.jpg in Resources */,
 				C4924DBE2083E3A60059CAC2 /* LaunchScreen.storyboard in Resources */,
 				C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */,
 				C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */,
@@ -211,9 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FC55EE2086A71B00D35C2D /* MovieDetailsViewController.swift in Sources */,
 				C4924DC62083E4CD0059CAC2 /* HomePageCollectionView.swift in Sources */,
 				C4924DB92083E39B0059CAC2 /* PopularMovies.xcdatamodeld in Sources */,
-				C4924DC82083E6460059CAC2 /* MovieDetailsView.swift in Sources */,
 				C4924DB12083E39A0059CAC2 /* AppDelegate.swift in Sources */,
 				C4924DCA2083E77E0059CAC2 /* FavouritesTableView.swift in Sources */,
 			);
@@ -362,7 +366,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PopularMovies/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = iti.PopularMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -377,7 +384,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PopularMovies/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = iti.PopularMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

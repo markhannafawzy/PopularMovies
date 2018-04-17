@@ -1,29 +1,19 @@
 //
-//  FavouritesTableView.swift
+//  MovieDetailsViewController.swift
 //  PopularMovies
 //
-//  Created by Ahmed Mokhtar on 4/15/18.
+//  Created by Ahmed Mokhtar on 4/17/18.
 //  Copyright © 2018 Ahmed Mokhtar. All rights reserved.
 //
 
 import UIKit
 
-class FavouritesTableCell: UITableViewCell {
-    
-    @IBOutlet weak var moviePoster: UIImageView!
-    @IBOutlet weak var movieRating: UILabel!
-}
+class MovieDetailsViewController: UITableViewController {
 
-class FavouritesTableView: UITableViewController {
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tabBarController?.tabBar.isHidden = false
+        
+        self.tabBarController?.tabBar.isHidden = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -46,28 +36,18 @@ class FavouritesTableView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 9
+        return 1
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favouritesCell", for: indexPath) as! FavouritesTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-        cell.moviePoster.image = UIImage(named: "interstellar.jpg")
-        cell.movieRating.text = "8.5"
+
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Safe Push VC
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "movieDetailsController") as? MovieDetailsViewController {
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
-    }
- 
+    */
 
     /*
     // Override to support conditional editing of the table view.
