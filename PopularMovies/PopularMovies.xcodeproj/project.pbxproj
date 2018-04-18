@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B100B75B6B34FB4C87E18785 /* Pods_PopularMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1358D787CE0D92C39962F63A /* Pods_PopularMovies.framework */; };
+		C404E207208734F20086EF6A /* imdb.new_.logo_.png in Resources */ = {isa = PBXBuildFile; fileRef = C404E206208734F20086EF6A /* imdb.new_.logo_.png */; };
 		C4924DB12083E39A0059CAC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4924DB02083E39A0059CAC2 /* AppDelegate.swift */; };
 		C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4924DB42083E39A0059CAC2 /* Main.storyboard */; };
 		C4924DB92083E39B0059CAC2 /* PopularMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4924DB72083E39B0059CAC2 /* PopularMovies.xcdatamodeld */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		1358D787CE0D92C39962F63A /* Pods_PopularMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopularMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C490085B78D40C5E931C98E /* Pods-PopularMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.release.xcconfig"; sourceTree = "<group>"; };
+		C404E206208734F20086EF6A /* imdb.new_.logo_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imdb.new_.logo_.png; sourceTree = "<group>"; };
 		C4924DAD2083E39A0059CAC2 /* PopularMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4924DB02083E39A0059CAC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4924DB52083E39A0059CAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		C4924DAF2083E39A0059CAC2 /* PopularMovies */ = {
 			isa = PBXGroup;
 			children = (
+				C404E206208734F20086EF6A /* imdb.new_.logo_.png */,
 				C4FC55EB20869A8400D35C2D /* interstellar.jpg */,
 				C4924DB02083E39A0059CAC2 /* AppDelegate.swift */,
 				C4924DB42083E39A0059CAC2 /* Main.storyboard */,
@@ -164,6 +167,7 @@
 				C4924DBE2083E3A60059CAC2 /* LaunchScreen.storyboard in Resources */,
 				C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */,
 				C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */,
+				C404E207208734F20086EF6A /* imdb.new_.logo_.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
