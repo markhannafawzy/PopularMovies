@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B100B75B6B34FB4C87E18785 /* Pods_PopularMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1358D787CE0D92C39962F63A /* Pods_PopularMovies.framework */; };
 		C404E207208734F20086EF6A /* imdb.new_.logo_.png in Resources */ = {isa = PBXBuildFile; fileRef = C404E206208734F20086EF6A /* imdb.new_.logo_.png */; };
+		C404E20920873C730086EF6A /* star_wars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C404E20820873C720086EF6A /* star_wars.jpg */; };
+		C404E20D208749420086EF6A /* play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C404E20C208749410086EF6A /* play_button.png */; };
 		C4924DB12083E39A0059CAC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4924DB02083E39A0059CAC2 /* AppDelegate.swift */; };
 		C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4924DB42083E39A0059CAC2 /* Main.storyboard */; };
 		C4924DB92083E39B0059CAC2 /* PopularMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4924DB72083E39B0059CAC2 /* PopularMovies.xcdatamodeld */; };
@@ -24,6 +26,8 @@
 		1358D787CE0D92C39962F63A /* Pods_PopularMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopularMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C490085B78D40C5E931C98E /* Pods-PopularMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.release.xcconfig"; sourceTree = "<group>"; };
 		C404E206208734F20086EF6A /* imdb.new_.logo_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imdb.new_.logo_.png; sourceTree = "<group>"; };
+		C404E20820873C720086EF6A /* star_wars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star_wars.jpg; sourceTree = "<group>"; };
+		C404E20C208749410086EF6A /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
 		C4924DAD2083E39A0059CAC2 /* PopularMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4924DB02083E39A0059CAC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4924DB52083E39A0059CAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		C4924DAF2083E39A0059CAC2 /* PopularMovies */ = {
 			isa = PBXGroup;
 			children = (
+				C404E20C208749410086EF6A /* play_button.png */,
+				C404E20820873C720086EF6A /* star_wars.jpg */,
 				C404E206208734F20086EF6A /* imdb.new_.logo_.png */,
 				C4FC55EB20869A8400D35C2D /* interstellar.jpg */,
 				C4924DB02083E39A0059CAC2 /* AppDelegate.swift */,
@@ -163,7 +169,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C404E20920873C730086EF6A /* star_wars.jpg in Resources */,
 				C4FC55EC20869A8500D35C2D /* interstellar.jpg in Resources */,
+				C404E20D208749420086EF6A /* play_button.png in Resources */,
 				C4924DBE2083E3A60059CAC2 /* LaunchScreen.storyboard in Resources */,
 				C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */,
 				C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */,
