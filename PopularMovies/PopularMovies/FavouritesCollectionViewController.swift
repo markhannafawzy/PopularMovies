@@ -1,24 +1,18 @@
 //
-//  HomePageCollectionView.swift
+//  FavouritesCollectionViewController.swift
 //  PopularMovies
 //
-//  Created by Ahmed Mokhtar on 4/15/18.
+//  Created by Ahmed Mokhtar on 4/22/18.
 //  Copyright © 2018 Ahmed Mokhtar. All rights reserved.
 //
 
 import UIKit
 
-private let reuseIdentifier = "homeCollectionCell"
+private let reuseIdentifier = "favouritesCollectionCell"
 
-class MovieCollectionCell: UICollectionViewCell {
+class FavouritesCollectionViewController: UICollectionViewController {
+
     
-    @IBOutlet weak var poster_image_view: UIImageView!
-    @IBOutlet weak var movie_name: UILabel!
-    
-}
-
-class HomePageCollectionView: UICollectionViewController {
-
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
