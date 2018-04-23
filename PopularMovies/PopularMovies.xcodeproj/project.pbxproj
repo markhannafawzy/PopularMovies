@@ -18,6 +18,8 @@
 		C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4924DBA2083E3A60059CAC2 /* Assets.xcassets */; };
 		C4924DBE2083E3A60059CAC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4924DBC2083E3A60059CAC2 /* LaunchScreen.storyboard */; };
 		C4924DC62083E4CD0059CAC2 /* HomePageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4924DC52083E4CD0059CAC2 /* HomePageCollectionView.swift */; };
+		C4C31694208DDC36009CF43D /* preloader.json in Resources */ = {isa = PBXBuildFile; fileRef = C4C31693208DDC35009CF43D /* preloader.json */; };
+		C4C31699208DDCEC009CF43D /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C31698208DDCEC009CF43D /* SplashScreenViewController.swift */; };
 		C4FC55EC20869A8500D35C2D /* interstellar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4FC55EB20869A8400D35C2D /* interstellar.jpg */; };
 		C4FC55EE2086A71B00D35C2D /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC55ED2086A71B00D35C2D /* MovieDetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +39,8 @@
 		C4924DBD2083E3A60059CAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4924DBF2083E3A60059CAC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4924DC52083E4CD0059CAC2 /* HomePageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionView.swift; sourceTree = "<group>"; };
+		C4C31693208DDC35009CF43D /* preloader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preloader.json; sourceTree = "<group>"; };
+		C4C31698208DDCEC009CF43D /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		C4FC55EB20869A8400D35C2D /* interstellar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = interstellar.jpg; sourceTree = "<group>"; };
 		C4FC55ED2086A71B00D35C2D /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		D16F0B3483A00E5D3454146B /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,21 +87,47 @@
 		C4924DAF2083E39A0059CAC2 /* PopularMovies */ = {
 			isa = PBXGroup;
 			children = (
-				C404E20C208749410086EF6A /* play_button.png */,
-				C404E20820873C720086EF6A /* star_wars.jpg */,
-				C404E206208734F20086EF6A /* imdb.new_.logo_.png */,
-				C4FC55EB20869A8400D35C2D /* interstellar.jpg */,
+				C4C31696208DDC7B009CF43D /* controllers */,
+				C4C31695208DDC41009CF43D /* animation */,
+				C4C31697208DDC97009CF43D /* images */,
 				C4924DB02083E39A0059CAC2 /* AppDelegate.swift */,
 				C4924DB42083E39A0059CAC2 /* Main.storyboard */,
 				C4924DBA2083E3A60059CAC2 /* Assets.xcassets */,
 				C4924DBC2083E3A60059CAC2 /* LaunchScreen.storyboard */,
 				C4924DBF2083E3A60059CAC2 /* Info.plist */,
 				C4924DB72083E39B0059CAC2 /* PopularMovies.xcdatamodeld */,
+			);
+			path = PopularMovies;
+			sourceTree = "<group>";
+		};
+		C4C31695208DDC41009CF43D /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				C4C31693208DDC35009CF43D /* preloader.json */,
+			);
+			path = animation;
+			sourceTree = "<group>";
+		};
+		C4C31696208DDC7B009CF43D /* controllers */ = {
+			isa = PBXGroup;
+			children = (
 				C4924DC52083E4CD0059CAC2 /* HomePageCollectionView.swift */,
 				C4FC55ED2086A71B00D35C2D /* MovieDetailsViewController.swift */,
 				C48EB83A208D0F1B001C748D /* FavouritesCollectionViewController.swift */,
+				C4C31698208DDCEC009CF43D /* SplashScreenViewController.swift */,
 			);
-			path = PopularMovies;
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		C4C31697208DDC97009CF43D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C404E20C208749410086EF6A /* play_button.png */,
+				C404E20820873C720086EF6A /* star_wars.jpg */,
+				C404E206208734F20086EF6A /* imdb.new_.logo_.png */,
+				C4FC55EB20869A8400D35C2D /* interstellar.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		E9A4A376804A2FCD37861C71 /* Pods */ = {
@@ -173,6 +203,7 @@
 				C4FC55EC20869A8500D35C2D /* interstellar.jpg in Resources */,
 				C404E20D208749420086EF6A /* play_button.png in Resources */,
 				C4924DBE2083E3A60059CAC2 /* LaunchScreen.storyboard in Resources */,
+				C4C31694208DDC36009CF43D /* preloader.json in Resources */,
 				C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */,
 				C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */,
 				C404E207208734F20086EF6A /* imdb.new_.logo_.png in Resources */,
@@ -191,11 +222,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -229,6 +262,7 @@
 			files = (
 				C4FC55EE2086A71B00D35C2D /* MovieDetailsViewController.swift in Sources */,
 				C48EB83B208D0F1B001C748D /* FavouritesCollectionViewController.swift in Sources */,
+				C4C31699208DDCEC009CF43D /* SplashScreenViewController.swift in Sources */,
 				C4924DC62083E4CD0059CAC2 /* HomePageCollectionView.swift in Sources */,
 				C4924DB92083E39B0059CAC2 /* PopularMovies.xcdatamodeld in Sources */,
 				C4924DB12083E39A0059CAC2 /* AppDelegate.swift in Sources */,
