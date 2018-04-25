@@ -9,6 +9,15 @@
 import UIKit
 
 class MovieDetailsViewController: UITableViewController {
+    
+    @IBOutlet weak var details_large_poster: UIImageView!
+    @IBOutlet weak var details_small_poster: UIImageView!
+    @IBOutlet weak var details_rating: UILabel!
+    @IBOutlet weak var details_release_year: UILabel!
+    @IBOutlet weak var details_movie_title: UILabel!
+    @IBOutlet weak var details_movie_overview: UILabel!
+    @IBOutlet weak var details_moview_reviews: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +46,10 @@ class MovieDetailsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 3
+    }
+    
+    @IBAction func addMovieToFavourites(_ sender: UIButton) {
+        //save movie to core date here
     }
     
     @IBAction func displayTrailer(_ sender: UIButton) {
