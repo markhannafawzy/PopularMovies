@@ -10,21 +10,34 @@ import UIKit
 import Lottie
 
 class SplashScreenViewController: UIViewController {
-
-    private var boatAnimation: LOTAnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        // Create Boat Animation
-        boatAnimation = LOTAnimationView(name: "preloader")
-        // Set view to full screen, aspectFill
-        boatAnimation!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        boatAnimation!.contentMode = .scaleAspectFill
-        boatAnimation!.frame = view.bounds
-        // Add the Animation
-        view.addSubview(boatAnimation!)
+        let animationView = LOTAnimationView(name: "preloader")
+        animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
+        animationView.center = self.view.center
+        animationView.contentMode = .scaleAspectFill
+        
+        view.addSubview(animationView)
+        
+        animationView.play{ (finished) in
+            // Do Something
+            animationView.play{ (finished) in
+                // Do Something
+                animationView.play{ (finished) in
+                    // Do Something
+                    animationView.play{ (finished) in
+                        // Do Something
+                        animationView.play{ (finished) in
+                            // Do Something
+                                self.performSegue(withIdentifier: "splashScreenSeg", sender: self)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

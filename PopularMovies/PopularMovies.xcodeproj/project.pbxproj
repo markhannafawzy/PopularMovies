@@ -16,7 +16,6 @@
 		C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4924DB42083E39A0059CAC2 /* Main.storyboard */; };
 		C4924DB92083E39B0059CAC2 /* PopularMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4924DB72083E39B0059CAC2 /* PopularMovies.xcdatamodeld */; };
 		C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4924DBA2083E3A60059CAC2 /* Assets.xcassets */; };
-		C4924DBE2083E3A60059CAC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4924DBC2083E3A60059CAC2 /* LaunchScreen.storyboard */; };
 		C4924DC62083E4CD0059CAC2 /* HomePageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4924DC52083E4CD0059CAC2 /* HomePageCollectionView.swift */; };
 		C4C31694208DDC36009CF43D /* preloader.json in Resources */ = {isa = PBXBuildFile; fileRef = C4C31693208DDC35009CF43D /* preloader.json */; };
 		C4C31699208DDCEC009CF43D /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C31698208DDCEC009CF43D /* SplashScreenViewController.swift */; };
@@ -36,7 +35,6 @@
 		C4924DB52083E39A0059CAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4924DB82083E39B0059CAC2 /* PopularMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopularMovies.xcdatamodel; sourceTree = "<group>"; };
 		C4924DBA2083E3A60059CAC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C4924DBD2083E3A60059CAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4924DBF2083E3A60059CAC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4924DC52083E4CD0059CAC2 /* HomePageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionView.swift; sourceTree = "<group>"; };
 		C4C31693208DDC35009CF43D /* preloader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preloader.json; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 				C4924DB02083E39A0059CAC2 /* AppDelegate.swift */,
 				C4924DB42083E39A0059CAC2 /* Main.storyboard */,
 				C4924DBA2083E3A60059CAC2 /* Assets.xcassets */,
-				C4924DBC2083E3A60059CAC2 /* LaunchScreen.storyboard */,
 				C4924DBF2083E3A60059CAC2 /* Info.plist */,
 				C4924DB72083E39B0059CAC2 /* PopularMovies.xcdatamodeld */,
 			);
@@ -202,7 +199,6 @@
 				C404E20920873C730086EF6A /* star_wars.jpg in Resources */,
 				C4FC55EC20869A8500D35C2D /* interstellar.jpg in Resources */,
 				C404E20D208749420086EF6A /* play_button.png in Resources */,
-				C4924DBE2083E3A60059CAC2 /* LaunchScreen.storyboard in Resources */,
 				C4C31694208DDC36009CF43D /* preloader.json in Resources */,
 				C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */,
 				C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */,
@@ -278,14 +274,6 @@
 				C4924DB52083E39A0059CAC2 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C4924DBC2083E3A60059CAC2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4924DBD2083E3A60059CAC2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
