@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import Alamofire
+import SwiftyJSON
+import SDWebImage
 class MovieDetailsViewController: UITableViewController {
     
     @IBOutlet weak var details_large_poster: UIImageView!
@@ -20,8 +23,11 @@ class MovieDetailsViewController: UITableViewController {
     
     var movieIndex : Int!
     var arrResFromCoreData = [NSManagedObject]() //Array of ManagedObjects
+    var arrTrailerRes = [[String:AnyObject]]()
+    var arrReviewRes = [[String:AnyObject]]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSManagedObject>(entityName: "Movie")
@@ -30,11 +36,42 @@ class MovieDetailsViewController: UITableViewController {
         } catch {
             print("error")
         }
-        details_small_poster.image = UIImage(data: arrResFromCoreData[movieIndex].value(forKey: "posterPath2") as! Data)
-        details_large_poster.image = UIImage(data: arrResFromCoreData[movieIndex].value(forKey: "backdropPath2") as! Data)
+        
+        Alamofire.request(arrResFromCoreData[movieIndex].value(forKey: "reviewUrl") as! String).responseJSON { (responseData) -> Void in
+            if((responseData.result.value) != nil) {
+                let swiftyJsonVar = JSON(responseData.result.value!)
+                
+                if let resData = swiftyJsonVar["results"].arrayObject {
+                    self.arrReviewRes = resData as! [[String:AnyObject]]
+                    var authorFull : String = ""
+                    var contentFull : String = ""
+                    for i in 0..<self.arrReviewRes.count
+                    {
+                        var dictReview = self.arrReviewRes[i]
+                        authorFull = authorFull + (dictReview["author"] as? String)! + "#"
+                        contentFull = contentFull + (dictReview["content"] as? String)! + "#"
+                    }
+                    var authorArr = authorFull.split(separator: "#")
+                    var contentArr = contentFull.split(separator: "#")
+                    var fullReviews : String = ""
+                    for i in 0..<authorArr.count
+                    {
+                        fullReviews = fullReviews + authorArr[i] + "\n\n" + contentArr[i] + "\n\n\n\n"
+                    }
+                    self.details_moview_reviews.text = fullReviews
+                }
+            }
+        }
+        
+        
+//        details_small_poster.image = UIImage(data: arrResFromCoreData[movieIndex].value(forKey: "posterPath2") as! Data)
+        details_small_poster.sd_setImage(with: URL(string: arrResFromCoreData[movieIndex].value(forKey: "posterPath") as! String), placeholderImage: UIImage(named: "placeholder.png"))
+//        details_large_poster.image = UIImage(data: arrResFromCoreData[movieIndex].value(forKey: "backdropPath2") as! Data)
+        details_large_poster.sd_setImage(with: URL(string: arrResFromCoreData[movieIndex].value(forKey: "backdropPath") as! String), placeholderImage: UIImage(named: "placeholder.png"))
+
         details_movie_title.text = arrResFromCoreData[movieIndex].value(forKey: "originalTitle") as! String
         details_movie_overview.text = arrResFromCoreData[movieIndex].value(forKey: "overview") as! String
-        details_moview_reviews.text = arrResFromCoreData[movieIndex].value(forKey: "reviewContent") as! String
+        
         self.tabBarController?.tabBar.isHidden = true
 
         // Uncomment the following line to preserve selection between presentations
@@ -66,15 +103,26 @@ class MovieDetailsViewController: UITableViewController {
     }
     
     @IBAction func displayTrailer(_ sender: UIButton) {
-        //call youtube code
-        var movieKey = arrResFromCoreData[movieIndex].value(forKey: "trailerKey") as! String
-        if let youtubeURL = URL(string: "youtube://\(movieKey)"),
-            UIApplication.shared.canOpenURL(youtubeURL) {
-            // redirect to app
-            UIApplication.shared.open(youtubeURL, options: [:], completionHandler: nil)
-        } else if let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(movieKey)") {
-            // redirect through safari
-            UIApplication.shared.open(youtubeURL, options: [:], completionHandler: nil)
+        var movieId = arrResFromCoreData[movieIndex].value(forKey: "id") as! Int
+        Alamofire.request("http://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=bd97fe04de1096c3c59c20c445de2b05").responseJSON { (responseData) -> Void in
+           if((responseData.result.value) != nil) {
+                let swiftyJsonVar = JSON(responseData.result.value!)
+
+                if let resData = swiftyJsonVar["results"].arrayObject {
+                    self.arrTrailerRes = resData as! [[String:AnyObject]]
+                    var dict2 = self.arrTrailerRes[0]
+                    //call youtube code
+//                    var movieKey = arrResFromCoreData[movieIndex].value(forKey: "trailerKey") as! String
+                    if let youtubeURL = URL(string: "youtube://\(dict2["key"] as! String)"),
+                        UIApplication.shared.canOpenURL(youtubeURL) {
+                        // redirect to app
+                        UIApplication.shared.open(youtubeURL, options: [:], completionHandler: nil)
+                    } else if let youtubeURL = URL(string: "https://www.youtube.com/watch?v=\(dict2["key"] as! String)") {
+                        // redirect through safari
+                        UIApplication.shared.open(youtubeURL, options: [:], completionHandler: nil)
+                    }
+                }
+            }
         }
     }
     

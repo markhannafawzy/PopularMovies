@@ -31,6 +31,8 @@ class HomePageCollectionView: UICollectionViewController {
     var tempImgView : UIImageView!
     var rowIndex : Int!
     var destinationVC : MovieDetailsViewController!
+    var imgData : Data!
+    var imgData2 : Data!
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
@@ -120,14 +122,19 @@ class HomePageCollectionView: UICollectionViewController {
             var imgUrl = dict["poster_path"] as? String
             var fullUrl = "http://image.tmdb.org/t/p/w185/"+imgUrl!
             
-            //cell.poster_image_view.sd_setImage(with: URL(string: fullUrl), placeholderImage: UIImage(named: "placeholder.png"))
-            cell.poster_image_view.image = UIImage(named: "star_wars.jpg")
+            cell.poster_image_view.sd_setImage(with: URL(string: fullUrl), placeholderImage: UIImage(named: "placeholder.png"))
+//            cell.poster_image_view.sd_setImage(with: URL(string: fullUrl)) { (image, error, cache, url) in
+//                // Your code inside completion block
+//                self.imgData = UIImageJPEGRepresentation(cell.poster_image_view.image!, 1)
+//            }
+
+            //cell.poster_image_view.image = UIImage(named: "star_wars.jpg")
             cell.movie_name.text = dict["title"] as? String
             
             var img2Url = dict["backdrop_path"] as? String
             var full2Url = "http://image.tmdb.org/t/p/w185/"+img2Url!
             //tempImgView.sd_setImage(with: URL(string: full2Url), placeholderImage: UIImage(named: "placeholder.png"))
-            tempImgView.image = UIImage(named: "star_wars.jpg")
+            //tempImgView.image = UIImage(named: "star_wars.jpg")
             
             var appDelegate = UIApplication.shared.delegate as! AppDelegate
             var managedContext = appDelegate.persistentContainer.viewContext
@@ -136,69 +143,21 @@ class HomePageCollectionView: UICollectionViewController {
             
             var newMovie = NSManagedObject(entity: entity!, insertInto: managedContext)
             
-            var imgData = UIImageJPEGRepresentation(cell.poster_image_view.image!, 1)
-            newMovie.setValue(imgData, forKey: "posterPath2")
+//            var imgData = UIImageJPEGRepresentation(cell.poster_image_view.image!, 1)
+            newMovie.setValue(fullUrl, forKey: "posterPath")
             
-            var img2Data = UIImageJPEGRepresentation((tempImgView.image)!, 1)
-            newMovie.setValue(img2Data, forKey: "backdropPath2")
+            //var img2Data = UIImageJPEGRepresentation((tempImgView.image)!, 1)
+            newMovie.setValue(fullUrl, forKey: "backdropPath")
             
             newMovie.setValue(dict["id"]as? Int, forKey: "id")
             newMovie.setValue(dict["title"] as? String, forKey: "originalTitle")
             newMovie.setValue(dict["overview"]as? String, forKey: "overview")
             newMovie.setValue(dict["release_date"]as? String, forKey: "releaseDate")
             
-            var movieId  = dict["id"] as? Int
+            var movieId  = dict["id"] as! Int
             var reviewURL = "http://api.themoviedb.org/3/movie/\(movieId)/reviews?api_key=bd97fe04de1096c3c59c20c445de2b05"
             
-            self.getReviewData(activeGenreLink: reviewURL, completion: {
-                //updateUI
-                var authorFull : String = ""
-                var contentFull : String = ""
-                for i in 0..<self.arrReviewRes.count
-                {
-                    var dictReview = self.arrReviewRes[i]
-                    authorFull = authorFull + (dictReview["author"] as? String)! + "#"
-                    contentFull = contentFull + (dictReview["content"] as? String)! + "#"
-                }
-                
-                newMovie.setValue(authorFull, forKey: "reviewAuthor")
-                newMovie.setValue(contentFull, forKey: "reviewContent")
-            })
-            //            Alamofire.request("http://api.themoviedb.org/3/movie/\(movieId)/reviews?api_key=bd97fe04de1096c3c59c20c445de2b05").responseJSON { (responseData) -> Void in
-            //                if((responseData.result.value) != nil) {
-            //                    let swiftyJsonVar = JSON(responseData.result.value!)
-            //
-            //                    if let resData = swiftyJsonVar["results"].arrayObject {
-            //                        self.arrReviewRes = resData as! [[String:AnyObject]]
-            //                        var authorFull : String = ""
-            //                        var contentFull : String = ""
-            //                        for i in 0..<self.arrReviewRes.count
-            //                        {
-            //                            var dictReview = self.arrReviewRes[i]
-            //                            authorFull = authorFull + (dictReview["author"] as? String)! + "#"
-            //                            contentFull = contentFull + (dictReview["content"] as? String)! + "#"
-            //                        }
-            //
-            //                        newMovie.setValue(authorFull, forKey: "reviewAuthor")
-            //                        newMovie.setValue(contentFull, forKey: "reviewContent")
-            //                    }
-            //                }
-            //            }
-            
-            //            Alamofire.request("http://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=bd97fe04de1096c3c59c20c445de2b05").responseJSON { (responseData) -> Void in
-            //                if((responseData.result.value) != nil) {
-            //                    let swiftyJsonVar = JSON(responseData.result.value!)
-            //
-            //                    if let resData = swiftyJsonVar["results"].arrayObject {
-            //                        self.arrTrailerRes = resData as! [[String:AnyObject]]
-            //                        var dict2 = self.arrTrailerRes[1]
-            //
-            //                        newMovie.setValue(dict2["key"] as? String, forKey: "trailerKey")
-            newMovie.setValue("awaaa", forKey: "trailerKey")
-            //                    }
-            //                }
-            //            }
-            
+            newMovie.setValue(reviewURL, forKey: "reviewUrl")
             
             newMovie.setValue(dict["vote_average"] as? Float, forKey: "rating")
             
@@ -211,25 +170,13 @@ class HomePageCollectionView: UICollectionViewController {
         }
         else
         {
-            cell.poster_image_view.image = UIImage(data: arrResFromCoreData[indexPath.row].value(forKey: "posterPath2") as! Data)
+            cell.poster_image_view.sd_setImage(with: URL(string: arrResFromCoreData[indexPath.row].value(forKey: "posterPath") as! String), placeholderImage: UIImage(named: "placeholder.png"))
+            
             cell.movie_name.text = arrResFromCoreData[indexPath.row].value(forKey: "originalTitle") as! String
         }
         return cell
     }
-    func getReviewData(activeGenreLink: String,completion : @escaping ()->()){
-        
-        Alamofire.request(activeGenreLink).responseJSON { responseData in
-            if((responseData.result.value) != nil) {
-                let swiftyJsonVar = JSON(responseData.result.value!)
-                
-                if let resData = swiftyJsonVar["results"].arrayObject {
-                    self.arrReviewRes = resData as! [[String:AnyObject]]
-                }
-            }
-            completion()
-        }//End of Json request
-        
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.destinationVC = segue.destination as! MovieDetailsViewController
     }

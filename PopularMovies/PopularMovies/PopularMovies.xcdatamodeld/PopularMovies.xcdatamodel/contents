@@ -11,11 +11,10 @@
         <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="review" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="reviewAuthor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="reviewContent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reviewUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trailerKey" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Movie" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="Movie" positionX="-63" positionY="-18" width="128" height="225"/>
     </elements>
 </model>
