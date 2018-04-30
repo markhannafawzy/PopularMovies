@@ -7,27 +7,68 @@
 //
 
 import UIKit
-
+import CoreData
+import SDWebImage
+import SwiftyJSON
 private let reuseIdentifier = "favouritesCollectionCell"
-
-class FavouritesCollectionViewController: UICollectionViewController {
-
+class FavoriteMovieCollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var poster_image_view: UIImageView!
+    @IBOutlet weak var movie_name: UILabel!
+}
+class FavouritesCollectionViewController: UICollectionViewController , AddMovieProtocol{
+
+    var arrResFromCoreData = [NSManagedObject]() //Array of ManagedObjects
+    var rowIndex : Int!
+    var destinationVC : MovieDetailsViewController!
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSManagedObject>(entityName: "FavoriteMovie")
+        do {
+            try self.arrResFromCoreData = managedContext.fetch(request)
+        } catch {
+            print("error")
+        }
+        
+        self.collectionView?.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSManagedObject>(entityName: "FavoriteMovie")
+        do {
+            try self.arrResFromCoreData = managedContext.fetch(request)
+        } catch {
+            print("error")
+        }
+        self.collectionView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    func addMovie(flag: Bool) {
+        if flag == true
+        {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSManagedObject>(entityName: "FavoriteMovie")
+            do {
+                try self.arrResFromCoreData = managedContext.fetch(request)
+            } catch {
+                print("error")
+            }
+            
+            self.collectionView?.reloadData()
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -39,7 +80,7 @@ class FavouritesCollectionViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -48,17 +89,27 @@ class FavouritesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        return arrResFromCoreData.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MovieCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoriteMovieCollectionCell
     
         // Configure the cell
-    
+        var fullUrl = arrResFromCoreData[indexPath.row].value(forKey: "posterPath") as! String
+        
+        cell.poster_image_view.sd_setImage(with: URL(string: fullUrl), placeholderImage: UIImage(named: "placeholder.png"))
+        cell.movie_name.text = arrResFromCoreData[indexPath.row].value(forKey: "originalTitle") as! String
         return cell
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.destinationVC = segue.destination as! MovieDetailsViewController
+        self.destinationVC?.addMovieProtocol = self
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.rowIndex = indexPath.row
+        destinationVC.movieIndex = self.rowIndex
+    }
     // MARK: UICollectionViewDelegate
 
     /*

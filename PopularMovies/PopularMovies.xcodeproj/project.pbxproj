@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DA422C320952C28006DC75C /* AddMovieProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA422C220952C27006DC75C /* AddMovieProtocol.swift */; };
 		B100B75B6B34FB4C87E18785 /* Pods_PopularMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1358D787CE0D92C39962F63A /* Pods_PopularMovies.framework */; };
 		C404E207208734F20086EF6A /* imdb.new_.logo_.png in Resources */ = {isa = PBXBuildFile; fileRef = C404E206208734F20086EF6A /* imdb.new_.logo_.png */; };
 		C404E20920873C730086EF6A /* star_wars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C404E20820873C720086EF6A /* star_wars.jpg */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		1358D787CE0D92C39962F63A /* Pods_PopularMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopularMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C490085B78D40C5E931C98E /* Pods-PopularMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.release.xcconfig"; sourceTree = "<group>"; };
+		4DA422C220952C27006DC75C /* AddMovieProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovieProtocol.swift; sourceTree = "<group>"; };
 		C404E206208734F20086EF6A /* imdb.new_.logo_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imdb.new_.logo_.png; sourceTree = "<group>"; };
 		C404E20820873C720086EF6A /* star_wars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star_wars.jpg; sourceTree = "<group>"; };
 		C404E20C208749410086EF6A /* play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button.png; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				C4FC55ED2086A71B00D35C2D /* MovieDetailsViewController.swift */,
 				C48EB83A208D0F1B001C748D /* FavouritesCollectionViewController.swift */,
 				C4C31698208DDCEC009CF43D /* SplashScreenViewController.swift */,
+				4DA422C220952C27006DC75C /* AddMovieProtocol.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4FC55EE2086A71B00D35C2D /* MovieDetailsViewController.swift in Sources */,
+				4DA422C320952C28006DC75C /* AddMovieProtocol.swift in Sources */,
 				C48EB83B208D0F1B001C748D /* FavouritesCollectionViewController.swift in Sources */,
 				C4C31699208DDCEC009CF43D /* SplashScreenViewController.swift in Sources */,
 				C4924DC62083E4CD0059CAC2 /* HomePageCollectionView.swift in Sources */,
@@ -402,7 +406,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PopularMovies/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = iti.PopularMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -417,7 +424,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PopularMovies/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = iti.PopularMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

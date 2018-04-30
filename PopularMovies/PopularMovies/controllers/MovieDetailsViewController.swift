@@ -25,6 +25,7 @@ class MovieDetailsViewController: UITableViewController {
     var arrResFromCoreData = [NSManagedObject]() //Array of ManagedObjects
     var arrTrailerRes = [[String:AnyObject]]()
     var arrReviewRes = [[String:AnyObject]]()
+    var addMovieProtocol : AddMovieProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +72,8 @@ class MovieDetailsViewController: UITableViewController {
 
         details_movie_title.text = arrResFromCoreData[movieIndex].value(forKey: "originalTitle") as! String
         details_movie_overview.text = arrResFromCoreData[movieIndex].value(forKey: "overview") as! String
-        
+        details_release_year.text = arrResFromCoreData[movieIndex].value(forKey: "releaseDate") as! String
+        details_rating.text = "\(arrResFromCoreData[movieIndex].value(forKey: "rating") as! NSNumber)"
         self.tabBarController?.tabBar.isHidden = true
 
         // Uncomment the following line to preserve selection between presentations
@@ -99,7 +101,63 @@ class MovieDetailsViewController: UITableViewController {
     }
     
     @IBAction func addMovieToFavourites(_ sender: UIButton) {
+//        var movie : NSManagedObject = NSManagedObject()
+        var flag : Bool = false
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSManagedObject>(entityName: "FavoriteMovie")
+        let predicate = NSPredicate(format: "id = '\(arrResFromCoreData[movieIndex].value(forKey: "id") as! Int)'")
+        request.predicate = predicate
+        do
+        {
+            let test = try managedContext.fetch(request)
+            if test.count == 1
+            {
+                flag = true
+                print("movie already exist")
+            }
+        }
+        catch
+        {
+            print(error)
+        }
+        
         //save movie to core date here
+//        var appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        var managedContext = appDelegate.persistentContainer.viewContext
+        if flag == false
+        {
+            var entity = NSEntityDescription.entity(forEntityName: "FavoriteMovie" , in: managedContext)
+            
+            var newMovie = NSManagedObject(entity: entity!, insertInto: managedContext)
+            
+            newMovie.setValue(arrResFromCoreData[movieIndex].value(forKey: "posterPath") as! String, forKey: "posterPath")
+            
+            newMovie.setValue(arrResFromCoreData[movieIndex].value(forKey: "backdropPath") as! String, forKey: "backdropPath")
+            
+            newMovie.setValue(arrResFromCoreData[movieIndex].value(forKey: "id") as! Int, forKey: "id")
+            newMovie.setValue(arrResFromCoreData[movieIndex].value(forKey: "originalTitle") as! String, forKey: "originalTitle")
+            newMovie.setValue(arrResFromCoreData[movieIndex].value(forKey: "overview") as! String, forKey: "overview")
+            newMovie.setValue(arrResFromCoreData[movieIndex].value(forKey: "releaseDate") as! String, forKey: "releaseDate")
+            
+            var movieId  = arrResFromCoreData[movieIndex].value(forKey: "id") as! Int
+            var reviewURL = "http://api.themoviedb.org/3/movie/\(movieId)/reviews?api_key=bd97fe04de1096c3c59c20c445de2b05"
+            
+            newMovie.setValue(reviewURL, forKey: "reviewUrl")
+            
+            newMovie.setValue(arrResFromCoreData[movieIndex].value(forKey: "rating") as! NSNumber, forKey: "rating")
+            
+            print ("Data added")
+            do {
+                try managedContext.save()
+            } catch {
+                print("error")
+            }
+//            if (self.addMovieProtocol != nil)
+//            {
+//                self.addMovieProtocol.addMovie(flag: true)
+//            }
+        }
     }
     
     @IBAction func displayTrailer(_ sender: UIButton) {

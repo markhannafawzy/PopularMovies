@@ -159,7 +159,7 @@ class HomePageCollectionView: UICollectionViewController {
             
             newMovie.setValue(reviewURL, forKey: "reviewUrl")
             
-            newMovie.setValue(dict["vote_average"] as? Float, forKey: "rating")
+            newMovie.setValue(dict["vote_average"] as! NSNumber, forKey: "rating")
             
             print ("Data added")
             do {
@@ -179,6 +179,12 @@ class HomePageCollectionView: UICollectionViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.destinationVC = segue.destination as! MovieDetailsViewController
+//        let favoritesController = self.storyboard?.instantiateViewController(withIdentifier: "favorites") as! FavouritesCollectionViewController
+//        if self.destinationVC.addMovieProtocol == nil
+//        {
+//            self.destinationVC.addMovieProtocol = favoritesController
+//        }
+        
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.rowIndex = indexPath.row
