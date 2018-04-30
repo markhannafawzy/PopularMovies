@@ -140,7 +140,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvY-Od-RvR">
                                                     <rect key="frame" x="358" y="11" width="40" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="addToFavourites"/>
+                                                    <state key="normal" image="unmarked_as_favourite"/>
                                                     <connections>
                                                         <action selector="addMovieToFavourites:" destination="clv-Uv-RAY" eventType="touchUpInside" id="JYD-ZF-NFq"/>
                                                     </connections>
@@ -223,6 +223,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="details_add_to_favourites" destination="NvY-Od-RvR" id="LqQ-TU-hzx"/>
                         <outlet property="details_large_poster" destination="q8v-xC-RuQ" id="u2n-Ov-xhG"/>
                         <outlet property="details_movie_overview" destination="v9s-TZ-5sm" id="wnJ-Fl-tEK"/>
                         <outlet property="details_movie_title" destination="b52-n8-JuC" id="nmd-8w-Aem"/>
@@ -383,10 +384,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addToFavourites" width="40" height="40"/>
         <image name="play_button.png" width="300" height="300"/>
         <image name="ratingStar" width="40" height="40"/>
         <image name="star_wars.jpg" width="367" height="550"/>
+        <image name="unmarked_as_favourite" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PlZ-wh-kSm"/>

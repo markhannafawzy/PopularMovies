@@ -20,6 +20,7 @@ class MovieDetailsViewController: UITableViewController {
     @IBOutlet weak var details_movie_title: UILabel!
     @IBOutlet weak var details_movie_overview: UILabel!
     @IBOutlet weak var details_moview_reviews: UITextView!
+    @IBOutlet weak var details_add_to_favourites: UIButton!
     
     var movieIndex : Int!
     var arrResFromCoreData = [NSManagedObject]() //Array of ManagedObjects
@@ -168,6 +169,8 @@ class MovieDetailsViewController: UITableViewController {
 //            {
 //                self.addMovieProtocol.addMovie(flag: true)
 //            }
+            details_add_to_favourites.setBackgroundImage(UIImage(named: "addToFavourites.png"), for: UIControlState.normal)
+            
         }
     }
     
