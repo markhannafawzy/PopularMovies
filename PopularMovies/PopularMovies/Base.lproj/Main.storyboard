@@ -66,7 +66,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="zlf-2H-Kbi">
-                        <barButtonItem key="rightBarButtonItem" title="Top Rated" id="N32-bb-zLG"/>
+                        <barButtonItem key="rightBarButtonItem" title="Top Rated" id="N32-bb-zLG">
+                            <connections>
+                                <action selector="sortMoviesWithTopRated:" destination="nfe-Pl-4ux" id="CyQ-IY-8ea"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPO-qC-gAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -282,7 +286,7 @@
         <scene sceneID="ISd-mM-8i8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sZT-5p-lma" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="8gX-3c-o0k"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="8gX-3c-o0k"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w2g-qd-5ba">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -385,6 +389,6 @@
         <image name="star_wars.jpg" width="367" height="550"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sLJ-mI-5ly"/>
+        <segue reference="PlZ-wh-kSm"/>
     </inferredMetricsTieBreakers>
 </document>

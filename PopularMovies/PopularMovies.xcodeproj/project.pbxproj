@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D05388C2097BFD2000BE0F8 /* home-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D05388B2097BFCD000BE0F8 /* home-icon.png */; };
 		4DA422C320952C28006DC75C /* AddMovieProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA422C220952C27006DC75C /* AddMovieProtocol.swift */; };
 		B100B75B6B34FB4C87E18785 /* Pods_PopularMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1358D787CE0D92C39962F63A /* Pods_PopularMovies.framework */; };
 		C404E207208734F20086EF6A /* imdb.new_.logo_.png in Resources */ = {isa = PBXBuildFile; fileRef = C404E206208734F20086EF6A /* imdb.new_.logo_.png */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		1358D787CE0D92C39962F63A /* Pods_PopularMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopularMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C490085B78D40C5E931C98E /* Pods-PopularMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.release.xcconfig"; sourceTree = "<group>"; };
+		4D05388B2097BFCD000BE0F8 /* home-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-icon.png"; sourceTree = "<group>"; };
 		4DA422C220952C27006DC75C /* AddMovieProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovieProtocol.swift; sourceTree = "<group>"; };
 		C404E206208734F20086EF6A /* imdb.new_.logo_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imdb.new_.logo_.png; sourceTree = "<group>"; };
 		C404E20820873C720086EF6A /* star_wars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star_wars.jpg; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		C4C31697208DDC97009CF43D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4D05388B2097BFCD000BE0F8 /* home-icon.png */,
 				C404E20C208749410086EF6A /* play_button.png */,
 				C404E20820873C720086EF6A /* star_wars.jpg */,
 				C404E206208734F20086EF6A /* imdb.new_.logo_.png */,
@@ -206,6 +209,7 @@
 				C4924DBB2083E3A60059CAC2 /* Assets.xcassets in Resources */,
 				C4924DB62083E39A0059CAC2 /* Main.storyboard in Resources */,
 				C404E207208734F20086EF6A /* imdb.new_.logo_.png in Resources */,
+				4D05388C2097BFD2000BE0F8 /* home-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

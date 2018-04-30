@@ -27,20 +27,17 @@ class HomePageCollectionView: UICollectionViewController {
     var arrReviewRes = [[String:AnyObject]]()
     var arrResFromCoreData = [NSManagedObject]() //Array of ManagedObjects
     var flag : Bool = true
-    var tempImg : UIImage!
-    var tempImgView : UIImageView!
     var rowIndex : Int!
     var destinationVC : MovieDetailsViewController!
-    var imgData : Data!
-    var imgData2 : Data!
+
+    //var sortedArray = [[String:AnyObject]]() //Sorted Array of ManagedObjects
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tempImg = UIImage()
-        tempImgView = UIImageView(image: tempImg)
         Alamofire.request("http://api.themoviedb.org/3/discover/movie?api_key=bd97fe04de1096c3c59c20c445de2b05").responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 let swiftyJsonVar = JSON(responseData.result.value!)
@@ -131,8 +128,6 @@ class HomePageCollectionView: UICollectionViewController {
             //cell.poster_image_view.image = UIImage(named: "star_wars.jpg")
             cell.movie_name.text = dict["title"] as? String
             
-            var img2Url = dict["backdrop_path"] as? String
-            var full2Url = "http://image.tmdb.org/t/p/w185/"+img2Url!
             //tempImgView.sd_setImage(with: URL(string: full2Url), placeholderImage: UIImage(named: "placeholder.png"))
             //tempImgView.image = UIImage(named: "star_wars.jpg")
             
@@ -191,6 +186,55 @@ class HomePageCollectionView: UICollectionViewController {
         destinationVC.movieIndex = self.rowIndex
     }
     // MARK: UICollectionViewDelegate
+    
+    @IBAction func sortMoviesWithTopRated(_ sender: Any) {
+//        https://api.themoviedb.org/3/movie/top_rated?api_key=bd97fe04de1096c3c59c20c445de2b05&language=en-US&page=1
+        Alamofire.request("https://api.themoviedb.org/3/movie/top_rated?api_key=bd97fe04de1096c3c59c20c445de2b05&language=en-US&page=1").responseJSON { (responseData) -> Void in
+            if((responseData.result.value) != nil) {
+                let swiftyJsonVar = JSON(responseData.result.value!)
+                if let resData = swiftyJsonVar["results"].arrayObject {
+                    self.arrRes = resData as! [[String:AnyObject]]
+                    //print(self.arrRes)
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let managedContext = appDelegate.persistentContainer.viewContext
+                    let request = NSFetchRequest<NSManagedObject>(entityName: "Movie")
+                    do {
+                        try self.arrResFromCoreData = managedContext.fetch(request)
+                    } catch {
+                        print("error")
+                    }
+                    for i in 0..<self.arrResFromCoreData.count
+                    {
+                        managedContext.delete(self.arrResFromCoreData[i])
+                    }
+                    do {
+                        try managedContext.save()
+                    } catch {
+                        print("error")
+                    }
+                }
+                else{
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let managedContext = appDelegate.persistentContainer.viewContext
+                    let request = NSFetchRequest<NSManagedObject>(entityName: "Movie")
+                    do {
+                        try self.arrResFromCoreData = managedContext.fetch(request)
+                    } catch {
+                        print("error")
+                    }
+                    self.flag = false
+                    self.collectionView?.reloadData()
+                }
+                if self.arrRes.count > 0 {
+                    self.collectionView?.reloadData()
+                }
+            }
+        }
+
+        
+    }
+    
+    
     
     /*
      // Uncomment this method to specify if the specified item should be highlighted during tracking

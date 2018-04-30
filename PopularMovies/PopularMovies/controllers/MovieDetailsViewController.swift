@@ -72,7 +72,10 @@ class MovieDetailsViewController: UITableViewController {
 
         details_movie_title.text = arrResFromCoreData[movieIndex].value(forKey: "originalTitle") as! String
         details_movie_overview.text = arrResFromCoreData[movieIndex].value(forKey: "overview") as! String
-        details_release_year.text = arrResFromCoreData[movieIndex].value(forKey: "releaseDate") as! String
+        var releaseDate = arrResFromCoreData[movieIndex].value(forKey: "releaseDate") as! String
+        var releaseDateArr = releaseDate.split(separator: "-")
+        
+        details_release_year.text = releaseDateArr[0] + ""
         details_rating.text = "\(arrResFromCoreData[movieIndex].value(forKey: "rating") as! NSNumber)"
         self.tabBarController?.tabBar.isHidden = true
 
@@ -115,6 +118,10 @@ class MovieDetailsViewController: UITableViewController {
             {
                 flag = true
                 print("movie already exist")
+                let alert = UIAlertController(title: "Adding To Favourites", message: "Your movie already exist", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
             }
         }
         catch
@@ -150,6 +157,10 @@ class MovieDetailsViewController: UITableViewController {
             print ("Data added")
             do {
                 try managedContext.save()
+                let alert = UIAlertController(title: "Adding To Favourites", message: "Your movie added succesfuly to favourites", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
             } catch {
                 print("error")
             }
